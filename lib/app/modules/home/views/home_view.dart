@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:myapp/app/controllers/auth_controller.dart';
 import 'package:myapp/app/modules/dosen/views/dosen_add_view.dart';
@@ -8,7 +7,6 @@ import 'package:myapp/app/modules/mahasiswa/views/mahasiswa_add_view.dart';
 import 'package:myapp/app/modules/mahasiswa/views/mahasiswa_view.dart';
 import 'package:myapp/app/modules/pegawai/views/pegawai_add_view.dart';
 import 'package:myapp/app/modules/pegawai/views/pegawai_view.dart';
-
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -57,7 +55,7 @@ class _DashboardAdminState extends State<DashboardAdmin> {
     return Scaffold(
       drawer: drawer(),
       appBar: AppBar(
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.purple, // Changed to purple
         titleSpacing: 0,
         title: Text(_fragment[_index]['title']),
         actions: [
@@ -66,7 +64,6 @@ class _DashboardAdminState extends State<DashboardAdmin> {
             icon: Icon(Icons.add_circle_outline),
           )
         ],
-
       ),
       body: _fragment[_index]['view'],
     );
@@ -78,7 +75,7 @@ class _DashboardAdminState extends State<DashboardAdmin> {
         children: [
           DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.teal,
+              color: Colors.purple, // Changed to purple
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -87,14 +84,14 @@ class _DashboardAdminState extends State<DashboardAdmin> {
                 Icon(
                   Icons.account_circle,
                   size: 80,
-                  color: Colors.white,
+                  color: Colors.white, // White color for icon
                 ),
                 Text(
                   "Tegar Sya'bani Hamid",
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white),
+                      color: Colors.white), // White text color
                 ),
                 SizedBox(
                   height: 2,
@@ -103,7 +100,7 @@ class _DashboardAdminState extends State<DashboardAdmin> {
                   'Admin',
                   style: TextStyle(
                     fontSize: 12,
-                    color: Colors.white,
+                    color: Colors.white, // White text color
                   ),
                 ),
               ],
@@ -114,55 +111,45 @@ class _DashboardAdminState extends State<DashboardAdmin> {
               setState(() => _index = 0);
               Get.back();
             },
-            leading: Icon(Icons.dashboard),
-            title: Text('Dashboard'),
-            trailing: Icon(Icons.navigate_next),
-            iconColor: Colors.teal,
-            textColor: Colors.teal,
+            leading: Icon(Icons.dashboard, color: Colors.purple), // Purple icon color
+            title: Text('Dashboard', style: TextStyle(color: Colors.purple)), // Purple text color
+            trailing: Icon(Icons.navigate_next, color: Colors.purple), // Purple icon color
           ),
           ListTile(
             onTap: () {
               setState(() => _index = 1);
               Get.back();
             },
-            leading: Icon(Icons.people),
-            title: Text('Data Mahasiswa'),
-            trailing: Icon(Icons.navigate_next),
-            iconColor: Colors.teal,
-            textColor: Colors.teal,
+            leading: Icon(Icons.people, color: Colors.purple), // Purple icon color
+            title: Text('Data Mahasiswa', style: TextStyle(color: Colors.purple)), // Purple text color
+            trailing: Icon(Icons.navigate_next, color: Colors.purple), // Purple icon color
           ),
           ListTile(
             onTap: () {
               setState(() => _index = 2);
               Get.back();
             },
-            leading: Icon(Icons.people),
-            title: Text('Data Dosen'),
-            trailing: Icon(Icons.navigate_next),
-            iconColor: Colors.teal,
-            textColor: Colors.teal,
+            leading: Icon(Icons.people, color: Colors.purple), // Purple icon color
+            title: Text('Data Dosen', style: TextStyle(color: Colors.purple)), // Purple text color
+            trailing: Icon(Icons.navigate_next, color: Colors.purple), // Purple icon color
           ),
           ListTile(
             onTap: () {
               setState(() => _index = 3);
               Get.back();
             },
-            leading: Icon(Icons.people),
-            title: Text('Data Pegawai'),
-            trailing: Icon(Icons.navigate_next),
-            iconColor: Colors.teal,
-            textColor: Colors.teal,
+            leading: Icon(Icons.people, color: Colors.purple), // Purple icon color
+            title: Text('Data Pegawai', style: TextStyle(color: Colors.purple)), // Purple text color
+            trailing: Icon(Icons.navigate_next, color: Colors.purple), // Purple icon color
           ),
           ListTile(
             onTap: () {
               Get.back();
               cAuth.logout();
             },
-            leading: Icon(Icons.logout),
-            title: Text('Logout'),
-            trailing: Icon(Icons.navigate_next),
-            iconColor: Colors.teal,
-            textColor: Colors.teal,
+            leading: Icon(Icons.logout, color: Colors.purple), // Purple icon color
+            title: Text('Logout', style: TextStyle(color: Colors.purple)), // Purple text color
+            trailing: Icon(Icons.navigate_next, color: Colors.purple), // Purple icon color
           ),
         ],
       ),

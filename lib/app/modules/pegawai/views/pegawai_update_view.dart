@@ -11,16 +11,20 @@ class PegawaiUpdateView extends GetView<PegawaiController> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.teal[500],
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Get.back(),
+        ),
+        backgroundColor: Colors.purple[700],
         title: Text(
-          'Ubah Pegawai', 
+          'Ubah Pegawai',
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
         ),
         centerTitle: true,
-        elevation: 0,
+        elevation: 5,
       ),
       body: FutureBuilder<DocumentSnapshot<Object?>>(
         future: controller.GetDataById(Get.arguments),
@@ -32,10 +36,20 @@ class PegawaiUpdateView extends GetView<PegawaiController> {
             controller.cJabatan.text = data['jabatan'];
             controller.cAlamat.text = data['alamat'];
             controller.cJeniskelamin.text = data['jeniskelamin'];
-            
+
             return Container(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Colors.purple.shade700,
+                    Colors.white,
+                  ],
+                ),
+              ),
               child: SingleChildScrollView(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -79,18 +93,20 @@ class PegawaiUpdateView extends GetView<PegawaiController> {
                         Get.arguments,
                       ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.teal[500],
+                        backgroundColor: Colors.purple[800],
+                        foregroundColor: Colors.white,
+                        elevation: 8,
                         padding: EdgeInsets.symmetric(vertical: 15),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(15),
                         ),
                       ),
                       child: Text(
                         "Ubah Data",
                         style: TextStyle(
-                          color: Colors.white,
+                          fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          fontSize: 16,
+                          letterSpacing: 1.2,
                         ),
                       ),
                     )
@@ -102,7 +118,7 @@ class PegawaiUpdateView extends GetView<PegawaiController> {
 
           return Center(
             child: CircularProgressIndicator(
-              color: Colors.teal[500],
+              color: Colors.purple[400],
             ),
           );
         },
@@ -120,15 +136,17 @@ class PegawaiUpdateView extends GetView<PegawaiController> {
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
         labelText: labelText,
-        prefixIcon: Icon(icon, color: Colors.teal[500]),
-        labelStyle: TextStyle(color: Colors.teal[500]),
+        prefixIcon: Icon(icon, color: Colors.purple[400]),
+        labelStyle: TextStyle(color: Colors.purple[800]),
+        filled: true,
+        fillColor: Colors.purple[50],
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.teal.shade200, width: 1.5),
-          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(color: Colors.purple.shade300, width: 1.5),
+          borderRadius: BorderRadius.circular(12),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.teal.shade500, width: 2),
-          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(color: Colors.purple.shade700, width: 2),
+          borderRadius: BorderRadius.circular(12),
         ),
       ),
     );
